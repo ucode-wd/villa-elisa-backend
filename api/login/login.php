@@ -10,7 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Sesión por 30 días
 ini_set('session.gc_maxlifetime', 2592000);
-session_set_cookie_params(2592000);
+session_set_cookie_params([
+    'lifetime' => 2592000, // 30 días
+    'path' => '/',
+    'domain' => '',        
+    'secure' => isset($_SERVER['HTTPS']), // solo sobre HTTPS
+    'httponly' => true,    // <- ESTA ES LA CLAVE
+    'samesite' => 'Strict' // o 'Lax' según tu caso
+]);
 session_start();
 
 $data = json_decode(file_get_contents('php://input'), true);
