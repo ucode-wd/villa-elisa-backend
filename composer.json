@@ -1,0 +1,17 @@
+{
+    "name": "mateo/admin-comuna",
+    "autoload": {
+        "psr-4": {
+            "Mateo\\AdminComuna\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mateo",
+            "email": "mateomorano@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.5"
+    }
+}
